@@ -4,6 +4,7 @@ Accepted by ECCV 2022
 
 
 This is the official codebase for [Entropy-driven Sampling and Training Scheme for Conditional Diffusion Generation](https://arxiv.org/abs/2206.11474).
+(not Camera Ready Version, Camera Ready Version is coming soon)
 
 This repository is heavily based on [openai/guided-diffusion](https://github.com/openai/guided-diffusion), 
 with modifications listed below:
@@ -11,7 +12,9 @@ with modifications listed below:
 2. add **ECT** (**E**ntropy **C**onstraint **T**raining) in classifier training process, the model trained with **ECT** will 
 have more realistic generation results when combined with **EDS** in sampling process.
 3. support Distributed Training of Pytorch
+
 ## Update
+* 2022.08.03 The paper in arxiv is not Camera Ready Version, Camera Ready Version is coming soon !!!
 * 2022.08.03 fix the bug of mixed precision training to follow [openai/guided-diffusion commit](https://github.com/openai/guided-diffusion/commit/22e0df8183507e13a7813f8d38d51b072ca1e67c)
 * 2022.08.02 upload pretrained model of [256x256_classifier+0.1ECT.pt](https://drive.google.com/drive/folders/1xldlyBYS7PSrC4tZxSPne9dpIW06QC51?usp=sharing)
 * 2022.07.14 upload the code
@@ -60,7 +63,7 @@ We have released checkpoints for the main models in the paper. Here are the down
 
 To sample from these models, you can use the `classifier_sample.py` scripts.
 Here, we provide flags for sampling from all of these models.
-We assume that you have downloaded the relevant model checkpoints into a folder called `models/`.
+We assume that you have downloaded the relevant model checkpoints into a folder called `./pretrain_model/`.
 
 ## 1. set up environment
 ```bash
@@ -69,7 +72,7 @@ We assume that you have downloaded the relevant model checkpoints into a folder 
   
 ```
 
-## 1. input some parameters
+## 2. input some parameters
 ```bash
 WORKSPACE_DIR=/workspace/mnt/storage/guangcongzheng/zju_zgc/ED-DPM
 cd $WORKSPACE_DIR
@@ -100,7 +103,7 @@ NUM_GPUS=2
   
 ```
 
-## 2. Select the model 
+## 3. select the model hyper-parameters 
 * ddim25
   * UADM
     * [UADM(25)-G](./model_card.md#1)
@@ -122,7 +125,7 @@ NUM_GPUS=2
     * [CADM-G+EDS+ECT](./model_card.md#12)
 
 
-## 3. sample
+## 4. sample
 ```bash
 NUM_SAMPLES=16 # set 50000 to reproduct the results reported in paper, howerver may take few days 
 FIX_SEED=True # set False when sampling 50000 samples
@@ -142,7 +145,7 @@ python -m torch.distributed.launch \
 
 ```
 
-## 4. evaluate FID, IS, sFID, Precision, Recall
+## 5. evaluate FID, IS, sFID, Precision, Recall 
 need to install tensorflow
 ```bash
 # CUDA_VISIBLE=0,1,2,3,4,5,6,7 \
@@ -180,4 +183,13 @@ This table summarizes our ImageNet results for pure guided diffusion models:
 | CADM-G+EDS+ECT | 1.0              | 4.09 | 5.07 | 221.57   |  0.83 | 0.50 |
 
 
+# Cite
+```
+@article{zheng2022entropy,
+  title={Entropy-driven Sampling and Training Scheme for Conditional Diffusion Generation},
+  author={Zheng, Guangcong and Li, Shengming and Wang, Hui and Yao, Taiping and Chen, Yang and Ding, Shoudong and Li, Xi},
+  journal={arXiv preprint arXiv:2206.11474},
+  year={2022}
+}
+```
 
