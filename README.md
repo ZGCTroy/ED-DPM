@@ -3,7 +3,7 @@
 Accepted by ECCV 2022
 
 
-This is the codebase for [Entropy-driven Sampling and Training Scheme for Conditional Diffusion Generation](https://arxiv.org/abs/2206.11474).
+This is the official codebase for [Entropy-driven Sampling and Training Scheme for Conditional Diffusion Generation](https://arxiv.org/abs/2206.11474).
 
 This repository is heavily based on [openai/guided-diffusion](https://github.com/openai/guided-diffusion), 
 with modifications listed below:
@@ -11,8 +11,12 @@ with modifications listed below:
 2. add **ECT** (**E**ntropy **C**onstraint **T**raining) in classifier training process, the model trained with **ECT** will 
 have more realistic generation results when combined with **EDS** in sampling process.
 3. support Distributed Training of Pytorch
+## Update
+* 2022.08.03 fix the bug of mixed precision training to follow [openai/guided-diffusion commit](https://github.com/openai/guided-diffusion/commit/22e0df8183507e13a7813f8d38d51b072ca1e67c)
+* 2022.08.02 upload pretrained model of [256x256_classifier+0.1ECT.pt](https://drive.google.com/drive/folders/1xldlyBYS7PSrC4tZxSPne9dpIW06QC51?usp=sharing)
+* 2022.07.14 upload the code
 
-## a few lines of code to apply EDS
+## Based on [openai/guided-diffusion](https://github.com/openai/guided-diffusion), only a few lines of code to apply EDS
 set args.use_entropy_scale = True to apply EDS 
 ```bash
     def cond_fn(x, t, y=None, **kwargs):
@@ -29,6 +33,7 @@ set args.use_entropy_scale = True to apply EDS
             'scale': args.classifier_scale
         }
 
+        # a few lines of code to apply EDS
         if args.use_entropy_scale:
             with th.no_grad():
                 probs = F.softmax(logits, dim=-1)  # (B, C)
@@ -48,7 +53,7 @@ We have released checkpoints for the main models in the paper. Here are the down
  * 256x256 diffusion  (CADM): [256x256_diffusion.pt](https://openaipublic.blob.core.windows.net/diffusion/jul-2021/256x256_diffusion.pt)
  * 256x256 diffusion (UADM): [256x256_diffusion_uncond.pt](https://openaipublic.blob.core.windows.net/diffusion/jul-2021/256x256_diffusion_uncond.pt)
  * 256x256 classifier (-G): [256x256_classifier.pt](https://openaipublic.blob.core.windows.net/diffusion/jul-2021/256x256_classifier.pt)
- * 256x256 classifier (-G+ECT): [256x256_classifier.pt](https://openaipublic.blob.core.windows.net/diffusion/jul-2021/256x256_classifier.pt)
+ * 256x256 classifier (-G+ECT): [256x256_classifier+0.1ECT.pt](https://drive.google.com/drive/folders/1xldlyBYS7PSrC4tZxSPne9dpIW06QC51?usp=sharing)
 
 
 # Sampling from pre-trained models
