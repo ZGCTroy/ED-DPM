@@ -1,5 +1,9 @@
 # ED-DPM (**E**ntropy-**D**riven - Diffusion Probabilistic Model)
 
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/entropy-driven-sampling-and-training-scheme/conditional-image-generation-on-imagenet)](https://paperswithcode.com/sota/conditional-image-generation-on-imagenet?p=entropy-driven-sampling-and-training-scheme)
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/entropy-driven-sampling-and-training-scheme/conditional-image-generation-on-imagenet-2)](https://paperswithcode.com/sota/conditional-image-generation-on-imagenet-2?p=entropy-driven-sampling-and-training-scheme)
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/entropy-driven-sampling-and-training-scheme/image-generation-on-imagenet-256x256)](https://paperswithcode.com/sota/image-generation-on-imagenet-256x256?p=entropy-driven-sampling-and-training-scheme)
+
 Accepted by ECCV 2022
 
 
@@ -14,6 +18,7 @@ have more realistic generation results when combined with **EDS** in sampling pr
 3. support Distributed Training of Pytorch
 
 ## Update
+* 2022.09.06 !!! [Camera Ready version of paper](https://drive.google.com/file/d/1NjbH-fwAPK64o3pD3P7e2_9Dp9aKySkZ/view?usp=sharing) is now available !!!
 * 2022.08.03 The paper in arxiv is not Camera Ready Version, Camera Ready Version is coming soon !!!
 * 2022.08.03 fix the bug of mixed precision training to follow [openai/guided-diffusion commit](https://github.com/openai/guided-diffusion/commit/22e0df8183507e13a7813f8d38d51b072ca1e67c)
 * 2022.08.02 upload pretrained model of [256x256_classifier+0.1ECT.pt](https://drive.google.com/drive/folders/1xldlyBYS7PSrC4tZxSPne9dpIW06QC51?usp=sharing)
