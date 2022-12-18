@@ -7,8 +7,9 @@
 Accepted by ECCV 2022
 
 
-This is the official codebase for [Entropy-driven Sampling and Training Scheme for Conditional Diffusion Generation](https://arxiv.org/abs/2206.11474).
-(not Camera Ready Version, Camera Ready Version is coming soon)
+This is the official codebase for [Entropy-driven Sampling and Training Scheme for Conditional Diffusion Generation](https://link.springer.com/chapter/10.1007/978-3-031-20047-2_43).
+
+[official paper link](https://www.ecva.net/papers/eccv_2022/papers_ECCV/papers/136820730.pdf)
 
 This repository is heavily based on [openai/guided-diffusion](https://github.com/openai/guided-diffusion), 
 with modifications listed below:
@@ -18,6 +19,7 @@ have more realistic generation results when combined with **EDS** in sampling pr
 3. support Distributed Training of Pytorch
 
 ## Update
+* 2022.10.24 !!! [official paper link](https://www.ecva.net/papers/eccv_2022/papers_ECCV/papers/136820730.pdf) !!!
 * 2022.09.06 !!! [Camera Ready version of paper](https://drive.google.com/file/d/1NjbH-fwAPK64o3pD3P7e2_9Dp9aKySkZ/view?usp=sharing) is now available !!!
 * 2022.08.03 The paper in arxiv is not Camera Ready Version, Camera Ready Version is coming soon !!!
 * 2022.08.03 fix the bug of mixed precision training to follow [openai/guided-diffusion commit](https://github.com/openai/guided-diffusion/commit/22e0df8183507e13a7813f8d38d51b072ca1e67c)
@@ -190,11 +192,13 @@ This table summarizes our ImageNet results for pure guided diffusion models:
 
 # Cite
 ```
-@article{zheng2022entropy,
-  title={Entropy-driven Sampling and Training Scheme for Conditional Diffusion Generation},
-  author={Zheng, Guangcong and Li, Shengming and Wang, Hui and Yao, Taiping and Chen, Yang and Ding, Shoudong and Li, Xi},
-  journal={arXiv preprint arXiv:2206.11474},
-  year={2022}
+@inproceedings{zheng2022entropy,
+  title={Entropy-Driven Sampling and Training Scheme for Conditional Diffusion Generation},
+  author={Zheng, Guangcong and Li, Shengming and Wang, Hui and Yao, Taiping and Chen, Yang and Ding, Shouhong and Li, Xi},
+  booktitle={European Conference on Computer Vision},
+  pages={754--769},
+  year={2022},
+  organization={Springer}
 }
 ```
 
